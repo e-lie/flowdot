@@ -5,8 +5,8 @@ import sys
 # Settings
 # ------------------
 ADDRESS='localhost'
-PORT=57110
-PORT2=57120
+PORT=57110 # OSC port
+PORT2=57120 # SCLANG PORT
 FONT='Consolas'
 SUPERCOLLIDER=""
 BOOT_ON_STARTUP=False
