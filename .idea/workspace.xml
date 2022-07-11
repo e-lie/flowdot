@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c97858a5-5732-4f64-8e53-a30589d451de" name="Changes" comment="Fixing link sync logic (WIP)">
+      <change beforePath="$PROJECT_DIR$/FoxDot/lib/TempoClock.py" beforeDir="false" afterPath="$PROJECT_DIR$/FoxDot/lib/TempoClock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoxDot/lib/Workspace/tmp/tempfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FoxDot/lib/Workspace/tmp/tempfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/car_logs.log" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="3638bc7e289a10ad4c462312b3724a41535985bc" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/lib/python3.10/site-packages/reapy/tools/network/socket.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="24KeR8lJYU5Jhd4QNAEKdZKTWFV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FoxDot/preset/common" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FoxDot/preset/common" />
+      <recent name="$PROJECT_DIR$/FoxDot/lib/Extensions/ReaperIntegration" />
+      <recent name="$PROJECT_DIR$/FoxDot/preset" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FoxDot/lib/Extensions/" />
+      <recent name="$PROJECT_DIR$/FoxDot/lib/Extensions/MidiMapFactory" />
+      <recent name="$PROJECT_DIR$/FoxDot/lib/Extensions/AbletonSmartParams" />
+      <recent name="$PROJECT_DIR$/FoxDot/lib/Extensions/Ableton" />
+      <recent name="$PROJECT_DIR$/FoxDot/lib/Extensions/Ableton/AbletonInstruments" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="FoxDot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c97858a5-5732-4f64-8e53-a30589d451de" name="Changes" comment="" />
+      <created>1643383697228</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643383697228</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refacto Ableton integration splitted between preset and lib + cleaning">
+      <created>1643481604173</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1643481604173</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refacto (factorisation/simplify) Smart param set process">
+      <created>1643567270097</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1643567270097</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Clean commented code">
+      <created>1643569183194</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1643569183194</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix apply param bug">
+      <created>1643570172565</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1643570172565</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Refacto for player setattr integration yum">
+      <created>1643587268251</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1643587268251</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Improve fadeout and fadein (smart choosing vol or amplify if not ableton)">
+      <created>1643588872950</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1643588872950</updated>
+    </task>
+    <task id="LOCAL-00013" summary="default amplitude at 1 (use amplify at .8 as preset instead)">
+      <created>1643986279193</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1643986279193</updated>
+    </task>
+    <task id="LOCAL-00014" summary="move midi map generation to factory class">
+      <created>1643995789053</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1643995789053</updated>
+    </task>
+    <task id="LOCAL-00015" summary="move midi map generation to factory class">
+      <created>1643996024191</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1643996024191</updated>
+    </task>
+    <task id="LOCAL-00016" summary="refacto finished ?">
+      <created>1644256853366</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1644256853366</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add basic send method for smart track and player">
+      <created>1644581489466</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1644581489466</updated>
+    </task>
+    <task id="LOCAL-00018" summary="integrate send methods and smart params">
+      <created>1644703966033</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1644703966033</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Finish sends control and add param name shortcut for first device">
+      <created>1645115393868</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1645115393868</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Finish sends control and add param name shortcut for first device">
+      <created>1645115422828</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1645115422828</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Automatic instrument and sends detection">
+      <created>1645800387350</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1645800387350</updated>
+    </task>
+    <task id="LOCAL-00022" summary="great preset utils">
+      <created>1645902121637</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1645902121637</updated>
+    </task>
+    <task id="LOCAL-00023" summary="handle sends in preset utils">
+      <created>1645902795881</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1645902795881</updated>
+    </task>
+    <task id="LOCAL-00024" summary="reorganise presets and add interpolate_settings tools">
+      <created>1646080225965</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1646080225965</updated>
+    </task>
+    <task id="LOCAL-00025" summary="refacto AbletonInstrument to use dict presets and other things">
+      <created>1646344267954</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1646344267954</updated>
+    </task>
+    <task id="LOCAL-00026" summary="some improvments before back2thestream">
+      <created>1646775877970</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1646775877970</updated>
+    </task>
+    <task id="LOCAL-00027" summary="refacto for reaper well managed">
+      <created>1646836185083</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1646836185083</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Multicanal panning functions">
+      <created>1648897226120</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1648897226120</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Move live extension to Livebak">
+      <created>1649427323790</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1649427323790</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Remove Live extension and fix change_bpm">
+      <created>1649433692420</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1649433692420</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add default output=2 to player object logic">
+      <created>1652182162196</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1652182162197</updated>
+    </task>
+    <task id="LOCAL-00032" summary="integrate new pattern presets">
+      <created>1652182184567</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1652182184567</updated>
+    </task>
+    <task id="LOCAL-00033" summary=" brutal reformatting of Players file using yapf + Extracting Groups in another file">
+      <created>1652187675732</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1652187675732</updated>
+    </task>
+    <task id="LOCAL-00034" summary="brutal reformatting of Players separating core logic from player manipulation methods">
+      <created>1652198968244</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1652198968244</updated>
+    </task>
+    <task id="LOCAL-00035" summary="reorder and rename player methods">
+      <created>1652199064385</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1652199064385</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Reaper integration in progress (reaFXgroup, activate fxs, ReaSends etc)">
+      <created>1653410344106</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1653410344107</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add fadeoutin method">
+      <created>1653410382015</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1653410382015</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix rest tutorial">
+      <created>1653410396759</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1653410396759</updated>
+    </task>
+    <task id="LOCAL-00039" summary="change rotation linvars to functions srot and drot">
+      <created>1653410431680</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1653410431680</updated>
+    </task>
+    <task id="LOCAL-00040" summary="param_matrix in progress">
+      <created>1653410458692</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1653410458692</updated>
+    </task>
+    <task id="LOCAL-00041" summary="update interpolate pattern">
+      <created>1656770511959</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1656770511959</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add pause pattern preset vars">
+      <created>1656770565743</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1656770565743</updated>
+    </task>
+    <task id="LOCAL-00043" summary="add faderand utility function">
+      <created>1656770628051</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1656770628051</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Add on of mechanism for reaper fxs and date fx params">
+      <created>1656770889999</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1656770889999</updated>
+    </task>
+    <task id="LOCAL-00045" summary="ParamMatrix WIP">
+      <created>1656771045415</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771045415</updated>
+    </task>
+    <task id="LOCAL-00046" summary="improve reaper integration independance from FoxDot">
+      <created>1656771212939</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771212939</updated>
+    </task>
+    <task id="LOCAL-00047" summary="small synthdef list clean">
+      <created>1656771237512</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771237512</updated>
+    </task>
+    <task id="LOCAL-00048" summary="add improve smart bpm functions">
+      <created>1656771264475</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771264475</updated>
+    </task>
+    <task id="LOCAL-00049" summary="change FoxDot/SC port for better Tidal cohabitation">
+      <created>1656771302028</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771302028</updated>
+    </task>
+    <task id="LOCAL-00050" summary="try fixing default drum midimap">
+      <created>1656771322108</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771322108</updated>
+    </task>
+    <task id="LOCAL-00051" summary="update effects params">
+      <created>1656771354957</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771354957</updated>
+    </task>
+    <task id="LOCAL-00052" summary="new sample db">
+      <created>1656771384294</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771384294</updated>
+    </task>
+    <task id="LOCAL-00053" summary="ignore sample db files">
+      <created>1656771635465</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1656771635465</updated>
+    </task>
+    <task id="LOCAL-00054" summary="merge Bubo/master with link integration">
+      <created>1656858342292</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1656858342292</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Fixing link sync logic (WIP)">
+      <created>1657228827763</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1657228827763</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="link_integration" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="BBScar/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="BBScar/killa_features" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add default output=2 to player object logic" />
+    <MESSAGE value="integrate new pattern presets" />
+    <MESSAGE value=" brutal reformatting of Players file using yapf + Extracting Groups in another file" />
+    <MESSAGE value="brutal reformatting of Players separating core logic from player manipulation methods" />
+    <MESSAGE value="reorder and rename player methods" />
+    <MESSAGE value="Reaper integration in progress (reaFXgroup, activate fxs, ReaSends etc)" />
+    <MESSAGE value="add fadeoutin method" />
+    <MESSAGE value="fix rest tutorial" />
+    <MESSAGE value="change rotation linvars to functions srot and drot" />
+    <MESSAGE value="param_matrix in progress" />
+    <MESSAGE value="update interpolate pattern" />
+    <MESSAGE value="add pause pattern preset vars" />
+    <MESSAGE value="add faderand utility function" />
+    <MESSAGE value="Add on of mechanism for reaper fxs and date fx params" />
+    <MESSAGE value="ParamMatrix WIP" />
+    <MESSAGE value="improve reaper integration independance from FoxDot" />
+    <MESSAGE value="small synthdef list clean" />
+    <MESSAGE value="add improve smart bpm functions" />
+    <MESSAGE value="change FoxDot/SC port for better Tidal cohabitation" />
+    <MESSAGE value="try fixing default drum midimap" />
+    <MESSAGE value="update effects params" />
+    <MESSAGE value="new sample db" />
+    <MESSAGE value="ignore sample db files" />
+    <MESSAGE value="merge Bubo/master with link integration" />
+    <MESSAGE value="Fixing link sync logic (WIP)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing link sync logic (WIP)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/lib/Extensions/PyliveSmartParams/__init__.py</url>
+          <line>150</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/lib/Extensions/Livebak/AbletonInstruments.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/lib/Extensions/Livebak/__init__.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/preset/reaper/UtilityFunctions/bpm.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/preset/common/ParamMatrix.py</url>
+          <line>153</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/preset/common/ParamMatrix.py</url>
+          <line>156</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/preset/common/ParamMatrix.py</url>
+          <line>81</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FoxDot/lib/TempoClock.py</url>
+          <line>442</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
