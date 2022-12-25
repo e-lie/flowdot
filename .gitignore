@@ -1,3 +1,7 @@
+# IDE ignores
+.vscode
+.idea
+
 # demo and debug folders
 myTests/*
 __pycache__/
@@ -97,3 +101,12 @@ Temporary Items
 
 # swp files
 *.swp
+
+
+# ignore foxdot sounds
+FoxDot/snd
+*.wav
+*.aif
+*.WAV
+*.mp3
+*.m4a
