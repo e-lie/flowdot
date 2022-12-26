@@ -1,16 +1,18 @@
-from FoxDot.preset.common import *
+d1 >> play('X X ', amp=2)
 
-joueur1 >> batterie("X-")
+Clock.link('/usr/local/bin/Carabiner')
 
-joueur1.pause(4,16)
+Clock.bpm = 120
 
+Clock.clear()
 
-joueur2 >> space([0,2,2,4], sus=1, flanger=0, oct=[4,5,6], dur=1/3)
+def report():
+    print(Clock.bpm)
+    print(Clock.alink.bpm_)
+    print("===============")
+    print(Clock.beat)
+    print(Clock.alink.beat_)
+    
+report()
 
-joueur2.pause(8, 32)
-
-joueur3 >> blip([0,2,-2], dur=.25)
-
-joueur3.pause(2, 8)
-
-joueurs.stop()
+Clock.alink.
