@@ -115,6 +115,13 @@ class TempoClock(object):
         # EspGrid and Ableton Link sync
         self.espgrid = None
         self.alink = None
+        self.alink_master = False
+        # Sync states :
+        # 0 bpm in sync
+        # 1 scheduled update
+        # 2 value changed
+        # 3 link bpm changed
+        self.alink_sync_state = 0
 
         # Flag for next_bar wrapper
         self.now_flag  = False
@@ -142,21 +149,33 @@ class TempoClock(object):
 
         self.thread = threading.Thread(target=self.run)
 
-    def link(self, carabiner_path="/usr/local/bin/Carabiner"):
+    def link(self, carabiner_path="/usr/local/bin/Carabiner", master: bool = False):
         """ Establish a link with Carabiner """
+
+        import psutil
+
+        for proc in psutil.process_iter():
+            if proc.name() in ["carabiner", "Carabiner"]:
+                print(f"{proc.name()} instance already exists. Killing to avoid duplication.")
+                proc.kill()
+
         if self.alink is None:
             try:
                 from LinkToPy import LinkInterface
-                self.alink = LinkInterface(path_to_carabiner=carabiner_path)
-
                 # New instance of LinkInterface
-                def align():
-                    self.alink.set_bpm(bpm=self.bpm) # align on FoxDot BPM
-                    self.alink.bpm_ = float(self.bpm) # override
-                    self.alink.force_beat_at_time(beat=int(self.beat), time_in_ms = 0, quantum=4)
+                self.alink = LinkInterface(path_to_carabiner=carabiner_path)
+                self.alink_master = master
 
-                self.schedule(obj= lambda:align())
-
+#                def align_link():
+#                    print(f"Aligning Link (Carabiner) to FoxDot.")
+#                    self.alink.set_bpm(bpm=self.bpm) # align on FoxDot BPM
+#                    self.alink.bpm_ = float(self.bpm) # override
+#                    self.alink.force_beat_at_time(beat=int(self.beat), time_in_ms = 0, quantum=4)
+#                    self.updating_alink_bpm = False
+#
+#                if master:
+#                    self.updating_alink_bpm = True
+#                    self.schedule(align_link, self.next_bar())
                 # self.set_time(beat=float(abs(round(self.alink.beat_, 4))))
             except ImportError as err:
                 raise ImportError("LinkToPy not found... Please install from GitHub repository.")
@@ -309,19 +328,23 @@ class TempoClock(object):
             if self.espgrid is not None:
 
                 self.espgrid.set_tempo(bpm)
-
             else:
-
-                if self.alink is not None:
-                    self.alink.set_bpm(bpm=bpm)
-                    object.__setattr__(self, "bpm", bpm)
-                else:
-                    object.__setattr__(self, "bpm", self._convert_json_bpm(bpm))
+                object.__setattr__(self, "bpm", self._convert_json_bpm(bpm))
                 self.last_now_call = self.bpm_start_time = bpm_start_time
                 self.bpm_start_beat = bpm_start_beat
 
+        def updating_alink_bpm():
+            print("Updating BPM in Link")
+            #object.__setattr__(self, "bpm", bpm)
+            self.alink.set_bpm(bpm=bpm)
+
         # Give next bar value to bpm_start_beat
         self.schedule(func, next_bar, is_priority=True)
+
+        if self.alink is not None and self.alink_master:
+            print("Scheduling alink update")
+            self.alink_sync_state = 1
+            self.schedule(updating_alink_bpm, next_bar, is_priority=True)
 
         return bpm_start_beat, bpm_start_time
 
@@ -685,6 +708,14 @@ class TempoClock(object):
                 # self.midi_clock.update()
 
             # if using espgrid
+
+            if self.alink is not None and self.alink.bpm_ != self.bpm and not self.alink_autosyncing and not self.bpm_syncing:
+                print("Automatic syncing from alink")
+                self.alink_autosyncing = True
+                self.bpm = float(self.alink.bpm_)
+
+            if self.bpm_syncing and self.bpm == self.alink.bpm_:
+                self.bpm_syncing = False
 
             if self.sleep_time > 0:
 
