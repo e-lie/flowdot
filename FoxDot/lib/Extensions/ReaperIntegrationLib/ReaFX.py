@@ -18,6 +18,7 @@ class ReaFX(object):
         self.reaparams['on'] = ReaParam(name='on', value=self.fx.is_enabled, index=-1)
         if self.scan_all_params:
             for index, param in enumerate(self.fx.params):
+                #print(f"reafx {self.name}: param num {index}")
                 if param.name in self.param_alias_dict.keys():
                     param_alias = make_snake_name(self.param_alias_dict[param.name])
                     param_reaper_name = param.name

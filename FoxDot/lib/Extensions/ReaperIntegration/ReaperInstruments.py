@@ -7,11 +7,22 @@ from typing import Dict
 
 
 class ReaperInstrumentFacade:
-    def __init__(self, reaproject, presets, track_name, midi_channel, midi_map=None, sus=None,
-                 create_instrument=False, instrument_name=None, plugin_name=None,
-                 plugin_preset=None, instrument_params=None, scan_all_params=True):
-
-        #self._clock = clock
+    def __init__(
+        self,
+        reaproject,
+        presets,
+        track_name,
+        midi_channel,
+        midi_map=None,
+        sus=None,
+        create_instrument=False,
+        instrument_name=None,
+        plugin_name=None,
+        plugin_preset=None,
+        instrument_params=None,
+        scan_all_params=True,
+        is_chain=False
+    ):
         self._reaproject = reaproject
         self._presets = presets
         self._reatrack = reaproject.get_track(track_name)
@@ -23,10 +34,31 @@ class ReaperInstrumentFacade:
         self._midi_channel = midi_channel
         self._sus = sus
         if create_instrument:
-            self._reafx_instrument = self._reatrack.create_reafx(plugin_name, plugin_preset, instrument_name, instrument_params, scan_all_params)
+            if is_chain:
+                reafxs_names = self._reatrack.create_reafxs_for_chain(
+                    chain_name=plugin_name,
+                    scan_all_params=scan_all_params
+                )
+                # first added fx is the instrument
+                self._reafx_instrument = self._reatrack.reafxs[reafxs_names[0]] 
+            else:
+                self._reafx_instrument = self._reatrack.create_reafx(
+                    plugin_name, plugin_preset, instrument_name,
+                    instrument_params, scan_all_params
+                )
 
-    def add_effect_plugin(self, plugin_name:str, effect_name:str=None, plugin_preset:str=None, effect_params:Dict={}, scan_all_params:bool=True):
-        self._reatrack.create_reafx(plugin_name, plugin_preset, effect_name, effect_params, scan_all_params)
+    def add_effect_plugin(
+        self,
+        plugin_name: str,
+        effect_name: str = None,
+        plugin_preset: str = None,
+        effect_params: Dict = {},
+        scan_all_params: bool = True
+    ):
+        self._reatrack.create_reafx(
+            plugin_name, plugin_preset, effect_name, effect_params,
+            scan_all_params
+        )
 
 
     def __del__(self):
@@ -58,9 +90,11 @@ class ReaperInstrumentFacade:
     def out(self, *args, sus=None, **kwargs):
 
         config_defaults = {}
+        refx = self._reatrack.reafxs
 
         if "track_default" in self._presets.keys():
             config_defaults = self._presets["track_default"]
+
 
         preset_name = self._reatrack.name + "_default"
         if preset_name in self._presets.keys():
@@ -94,5 +128,3 @@ class ReaperInstrumentFacade:
             *args,
             **remaining_param_dict,
         )
-
-

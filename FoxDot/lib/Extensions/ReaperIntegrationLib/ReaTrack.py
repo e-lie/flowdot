@@ -35,8 +35,8 @@ class ReaTrack(object):
         preceding_fx_name = None
         for index, fx in enumerate(self.track.fxs):
             snake_name = make_snake_name(fx.name)
-            #if index == 0 and self.firstfx is None:
-            #   self.firstfx = snake_name
+            if index == 0 and self.firstfx is None:
+               self.firstfx = snake_name
             if snake_name != preceding_fx_name: # if preceding fx has same name, it's a group
                 if snake_name not in self.reafxs.keys():
                     reafx = ReaFX(fx, snake_name, index)
@@ -94,43 +94,44 @@ class ReaTrack(object):
     def __repr__(self):
         return "<ReaTrack {} - {}>".format(self.name, pformat(self.reafxs))
 
-    def create_reafx(self, plugin_name: str, plugin_preset: str=None, reafx_name: str=None, param_alias_dict: Dict={}, scan_all_params=False, is_chain:bool=True):
-        if reafx_name is None:
-            reafx_name = make_snake_name(plugin_name)
-        fx = None
 
+    def create_reafx(self, plugin_name: str, plugin_preset: str=None, reafx_name: str=None, param_alias_dict={}, scan_all_params=False):
         def add_fx_plugin_with_preset(self, plugin_name, plugin_preset):
-            #if not self.reafxs and self.firstfx is None:
-            #    self.firstfx = reafx_name
+            if not self.reafxs and self.firstfx is None:
+                self.firstfx = reafx_name
             # add fx in last position : the index is len of the fx list - 1
             fx = self.track.add_fx(plugin_name)
             if plugin_preset is not None:  # plugin preset in reaper has to be applied first (before ReaFX obj creation) as it changes existing parameters
                 fx.preset = plugin_preset
                 self.preset = plugin_preset
             return fx
-
+        
+        if reafx_name is None:
+            reafx_name = make_snake_name(plugin_name)
+        fx = None
+        reafx = None
         with self.reaproject.reapylib.inside_reaper():
-            if is_chain:
-                try:
-                    add_fx_chain(self.track, plugin_name)
-                    for somefx in (fx for fx in self.track.fxs): # search for an fx with the plugin/chain name
-                        if somefx.name == plugin_name:
-                            fx = somefx
-                    #if fx is None:
-                    #    for somefx in (fx for fx in self.track.fxs): # if not found search for an fx containing chain name
-                    #        if somefx.name in plugin_name:
-                    #            fx = somefx
-                    if fx is None:
-                        fx = self.track.fxs[len(self.track.fxs)-1] # else use the last fx
-
-                except:
-                    fx = add_fx_plugin_with_preset(self, plugin_name, plugin_preset)
-            else:
-                fx = add_fx_plugin_with_preset(self, plugin_name, plugin_preset)
-
+            fx = add_fx_plugin_with_preset(self, plugin_name, plugin_preset)
             reafx = ReaFX(fx, reafx_name, len(self.reafxs.keys()) - 1, param_alias_dict, scan_all_params)
-            self.reafxs[reafx_name] = reafx
-            return reafx
+        self.reafxs[reafx_name] = reafx
+        return reafx
+
+
+    def create_reafxs_for_chain(self, chain_name, param_alias_dict={}, scan_all_params=False):
+        fx_count = 1
+        chain_reafx_names = []
+        with self.reaproject.reapylib.inside_reaper():
+            fx_count = add_fx_chain(self.track, chain_name)
+        # iterate over the last fx_count fxs on track to instanciate reafxs as they are the chain fxs
+            for fx in self.track.fxs[len(self.track.fxs) - fx_count:]:
+                reafx_name = make_snake_name(fx.name)
+                if not self.reafxs and self.firstfx is None:
+                    self.firstfx = reafx_name
+                reafx = ReaFX(fx, reafx_name, len(self.reafxs.keys()) - 1, param_alias_dict, scan_all_params)
+                self.reafxs[reafx_name] = reafx
+                chain_reafx_names.append(reafx_name)
+        return chain_reafx_names
+
 
     def delete_reafx(self, fx_index, reafx_name):
         self.track.fxs[fx_index].delete()

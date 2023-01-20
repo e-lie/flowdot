@@ -58,7 +58,7 @@ class ReaperInstrumentFactory:
             instrument_dict[instrument_name] = self.create_instrument_facade(**instrument_kwargs)
         return instrument_dict
 
-    def add_instrument(self, name, plugin_name, preset=None, params={}, scan_all_params=False):
+    def add_instrument(self, name, plugin_name, preset=None, params={}, scan_all_params=True, is_chain=True):
         free_indexes = [index for index in range(1,17) if index not in self.used_track_indexes]
         free_index = free_indexes[0]
         if preset is None:
@@ -72,7 +72,8 @@ class ReaperInstrumentFactory:
             plugin_name=plugin_name,
             plugin_preset=preset,
             instrument_params=params,
-            scan_all_params=scan_all_params
+            scan_all_params=scan_all_params,
+            is_chain=is_chain
         )
 
 @player_method

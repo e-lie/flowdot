@@ -68,7 +68,14 @@ def get_reaper_object_and_param_name(track: ReaTrack, param_fullname: str, quiet
     if param_fullname in track.reaparams.keys():
         reaper_object = track
         return reaper_object, param_fullname
-    # Param is a fx param
+    # Try to find param in the first fx (instrument)
+    elif (
+        track.firstfx is not None and
+        param_fullname in track.reafxs[track.firstfx].reaparams.keys()
+    ):
+        reaper_object = track.reafxs[track.firstfx]
+        return reaper_object, param_fullname
+    # Param is a fully qualified fx param example darkpass_rm
     elif '_' in param_fullname:
         fx_name, rest = split_param_name(param_fullname)
         if fx_name in track.reafxs.keys():
@@ -77,9 +84,6 @@ def get_reaper_object_and_param_name(track: ReaTrack, param_fullname: str, quiet
                 reaper_object = track.reafxs[fx_name]
                 param_name = rest
                 return reaper_object, param_name
-    #elif param_fullname in track.reafxs[track.firstfx].reaparams.keys(): # Try to match param name with first fx params
-    #    reaper_object = track.reafxs[track.firstfx]
-    #    return reaper_object, param_fullname
     if not quiet:
         print("Parameter doesn't exist: " + param_fullname)
     return reaper_object, param_name
